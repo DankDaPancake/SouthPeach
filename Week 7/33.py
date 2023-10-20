@@ -1,0 +1,13 @@
+import sys
+import math
+
+n = int(input())
+a = list(map(int, input().split()))
+minpal = 2e9+1
+for x in a:
+    revx, tx = 0, x
+    while tx > 0: 
+        revx = (revx * 10) + tx % 10
+        tx //= 10
+    if revx == x and x < minpal: minpal = x
+print(minpal)
