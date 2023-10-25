@@ -15,4 +15,5 @@ for x in a:
             sumS += x % 10
         x //= 10
     if sumF == sumS and countD == 3 and savex < minHN: minHN = savex
-print(minHN)
+if minHN == 2e9+1: print(-1)
+else: print(minHN)

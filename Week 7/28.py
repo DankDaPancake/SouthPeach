@@ -15,6 +15,5 @@ for l in range(n):
     for r in range(l, n):
         sumRange += a[r]
         if sumRange == minS: 
-            for x in range(l, r+1): 
-                print(a[x], end = ' ')
+            print(l+1, r+1)
             exit()

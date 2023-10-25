@@ -9,5 +9,5 @@ for x in a:
     while tx > 0: 
         revx = (revx * 10) + tx % 10
         tx //= 10
-    if revx == x and x > maxpal: maxpal = x
+    if revx == x and x > 0 and x > maxpal: maxpal = x
 print(maxpal)

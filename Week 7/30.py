@@ -23,6 +23,6 @@ for i in range(n):
     if prime[i]:
         curLen += 1
         if curLen == maxLen:
-            for j in range(i-maxLen+1, i+1):
-                print(a[j], end = ' ')
+            print(i-maxLen+2, i+1)
+            exit()
     else: curLen = 0
