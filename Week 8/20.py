@@ -11,6 +11,6 @@ for i in range(m):
     for j in range(n-1): 
         if a[i][j] < a[i][j+1]:
             dec = False
-            break
-    if dec: print(i+1)
+    if dec: print('YES')
+    else: print('NO')
         

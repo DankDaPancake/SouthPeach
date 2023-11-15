@@ -20,4 +20,5 @@ for i in range(m):
     for j in range(n): 
         if isPalin(a[i][j]) and maxpalin < a[i][j]: 
             maxpalin = a[i][j]
-print(maxpalin)
+if maxpalin == -2e9-1: print(-1)
+else: print(maxpalin)

@@ -20,4 +20,5 @@ for i in range(m):
     for j in range(n): 
         if isPalin(a[i][j]) and minpalin > a[i][j]: 
             minpalin = a[i][j]
-print(minpalin)
+if minpalin == 2e9+1: print(-1)
+else: print(minpalin)
