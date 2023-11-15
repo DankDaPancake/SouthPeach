@@ -18,4 +18,4 @@ countpn = 0
 for i in range(m):
     for j in range(n): 
         if isPerfect(a[i][j]): 
-            print(a[i][j])
+            print(a[i][j], end = ' ')

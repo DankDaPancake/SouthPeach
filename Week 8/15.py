@@ -14,4 +14,4 @@ for i in range(m):
     
 for i in range(m):
     for j in range(n): 
-        if isPrime(a[i][j]): print(a[i][j])
+        if isPrime(a[i][j]): print(a[i][j], end = ' ')
