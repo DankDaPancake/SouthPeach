@@ -24,4 +24,5 @@ for i in range(m):
     for j in range(n): 
         if isHappy(a[i][j]) and maxhappy < a[i][j]:
             maxhappy = a[i][j]
-print(maxhappy)
+if maxhappy == 0: print(-1)
+else: print(maxhappy)
