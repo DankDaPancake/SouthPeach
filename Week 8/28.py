@@ -2,6 +2,8 @@ import sys
 import math
     
 def isHappy(x):
+    if x < 100000 or x > 999999: 
+        return False
     countD = 0
     sumF, sumS = 0, 0
     while x > 0:
@@ -19,9 +21,10 @@ a = []
 for i in range(m):
     a.append(list(map(int, input().split())))
 
-maxhappy = 0
+maxhappy = -2e9 -1
 for i in range(m):
     for j in range(n): 
         if isHappy(a[i][j]) and maxhappy < a[i][j]:
             maxhappy = a[i][j]
-print(maxhappy)
+if maxhappy == -2e9-1: print(-1)
+else: print(maxhappy)

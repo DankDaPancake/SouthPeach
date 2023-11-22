@@ -19,9 +19,10 @@ a = []
 for i in range(m):
     a.append(list(map(int, input().split())))
 
-minhappy = 0
+minhappy = 2e9 + 1
 for i in range(m):
     for j in range(n): 
         if isHappy(a[i][j]) and minhappy > a[i][j]:
             minhappy = a[i][j]
-print(minhappy)
+if minhappy == 2e9 + 1: print(-1)
+else: print(minhappy)
