@@ -11,7 +11,7 @@ def isHappy(x):
         else: 
             sumS += x % 10
         x //= 10
-    if sumF == sumS: return True
+    if countD == 6 and sumF == sumS: return True
     else: return False
     
 m, n = map(int, input().split())
