@@ -1,7 +1,7 @@
 import sys
 
-x = input()
 a = list(map(str, input().split()))
+x = input()
 countx = 0
 for i in range(len(a)):
     for c in a[i]:

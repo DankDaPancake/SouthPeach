@@ -1,10 +1,8 @@
-import sys
-
-s = input()
-t = ''
+s=input()
+new=''
 for i in range(len(s)):
-    if i == 0 or s[i-1] == ' ':
-        if 97 <= ord(s[i]) <= 122: t += chr(ord(s[i]) - 32)
-        else: t += s[i]
-    else: t += s[i]
-print(t)
+    if((s[i]!=' ' and s[i-1]==' ') or (s[i]!=' ' and i==0)):
+        new+=s[i].upper()
+    else:
+        new+=s[i]
+print(new)

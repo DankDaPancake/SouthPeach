@@ -1,8 +1,5 @@
-import sys
-
-s = input()
-t = ''
+s=input()
+new=''
 for i in range(len(s)):
-    if 97 <= ord(s[i]) <= 122: t += chr(ord(s[i]) - 32)
-    else: t += s[i]
-print(t)
+    new+=s[i].upper()
+print(new)
