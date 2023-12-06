@@ -4,6 +4,7 @@ fo = open('asummin.out', 'w')
 m, n = map(int, fi.readline().split())
 a = list(map(int, fi.readline().split()))
 b = list(map(int, fi.readline().split()))
+
 sb = []
 for i in range(n): 
     sb.append((b[i], i))
@@ -32,7 +33,7 @@ for i in range(m):
     if a[i] + b[t] == 0:
         fo.write(str(i+1) + ' ' + str(t+1))
         exit()
-    if ida == -1 or abs(a[i] + b[t]) <= abs(a[ida] + b[idb]):
+    if ida == -1 or abs(a[i] + b[t]) < abs(a[ida] + b[idb]):
         ida = i
         idb = t
 fo.write(str(ida+1) + ' ' + str(idb+1))
