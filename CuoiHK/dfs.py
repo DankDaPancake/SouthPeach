@@ -1,32 +1,47 @@
+import math
+import sys
+
 fi = open('dfs.inp', 'r')
 fo = open('dfs.out', 'w')
 
 n, m, s, t = map(int, fi.readline().split())
+par = [i for i in range(n+1)]
+vst = [0] * (n+1)
 g = [[] for _ in range(n+1)]
-par = [-1 for _ in range(n+1)]
+res = []
 
-def dfs(u, pre):
-    par[u] = pre
-    for v in g[u]:
-        if par[v] == -1:
-            dfs(v, u)
+def solve(u):
+    if u == par[u]:
+        res.append(u)
+        return
+    res.append(u)
+    u = par[u]
+    solve(u)
 
-for _ in range(m):
+def dfs():
+    st = [s]
+    while st:
+        p = st[-1]
+        vst[p] = 1
+        if p == t:
+            solve(t)
+            return
+        st.pop()
+        for v in g[p]:
+            if vst[v] == 1:
+                continue
+            par[v] = p
+            st.append(v)
+
+for _ in range(m):  
     u, v = map(int, fi.readline().split())
     g[u].append(v)
+
 for i in range(1, n+1):
-    g[i].sort()
+    g[i].sort(reverse= True)
 
-dfs(s, s)
-if par[t] == -1:
-    fo.write(str(-1))
-    exit()
+dfs()
 
-path = []
-while t != par[t]:
-    path.append(t)
-    t = par[t]
-path.append(t)
-
-path.reverse()
-for u in path: fo.write(str(u) + ' ')
+res.reverse()
+for v in res:
+    fo.write(str(v) + ' ')
