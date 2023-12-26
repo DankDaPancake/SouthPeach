@@ -1,47 +1,48 @@
-import math
-import sys
 
 fi = open('dfs.inp', 'r')
 fo = open('dfs.out', 'w')
 
-n, m, s, t = map(int, fi.readline().split())
-par = [i for i in range(n+1)]
-vst = [0] * (n+1)
-g = [[] for _ in range(n+1)]
-res = []
+N = int(1e5+5)
+g = [[] for _ in range(N)]
+st = [False for _ in range(N)]
+f = [False for _ in range(N)]
+path = []
+par = [0 for _ in range(N)]
 
-def solve(u):
-    if u == par[u]:
-        res.append(u)
-        return
-    res.append(u)
-    u = par[u]
-    solve(u)
-
-def dfs():
-    st = [s]
-    while st:
-        p = st[-1]
-        vst[p] = 1
-        if p == t:
-            solve(t)
-            return
-        st.pop()
-        for v in g[p]:
-            if vst[v] == 1:
+def dfs(s, t):
+    par[s] = -1
+    stack = [s]
+    while s != t and stack:
+        s = stack.pop()
+        if not f[s]:
+            path.append(s)
+        if s == -1: break
+        if s == t:
+            break
+        f[s] = True
+        if not g[s]:
+            path.pop()
+            stack.append(par[s])
+            continue
+        if not st[s]:
+            g[s].sort(reverse = True)
+            st[s] = True
+        c = 0
+        for v in g[s]:
+            if f[v]:
                 continue
-            par[v] = p
-            st.append(v)
+            par[v] = s
+            stack.append(v)
+            c += 1
+        if c == 0:
+            path.pop()
+            stack.append(par[s])
+        
 
-for _ in range(m):  
+n, m, s, t = map(int, fi.readline().split())
+for _ in range(m):
     u, v = map(int, fi.readline().split())
     g[u].append(v)
-
-for i in range(1, n+1):
-    g[i].sort(reverse= True)
-
-dfs()
-
-res.reverse()
-for v in res:
-    fo.write(str(v) + ' ')
+    
+dfs(s,t)
+for u in path: fo.write(str(u) + ' ')
